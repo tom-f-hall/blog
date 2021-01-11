@@ -15,7 +15,7 @@ const Home = ({ articles, categories, homepage }) => {
     <Layout categories={categories} home>
       {/*<Seo seo={homepage.seo} /> */}
       <div>
-        Welcome to my Blog. I'm Tom and I like making things.
+        Welcome to my Blog. I'm Tom and I like making things, like this blog. Meta.
       </div>
     </Layout>
   )
