@@ -4,13 +4,15 @@ import { jsx } from 'theme-ui'
 import Head from 'next/head'
 import Link from 'next/link'
 
+import Nav from './nav'
+
 const name = 'Tom Hall'
 export const siteTitle = `Tom's blog`
 
-export default function Layout({children, home}) {
+export default function Layout({children, home, categories, seo}) {
   return (
     <div sx={{variant: 'containers.page'}}>
-      <Head>
+      {/* <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta
           name='description'
@@ -24,10 +26,11 @@ export default function Layout({children, home}) {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      </Head> */}
+      <Nav categories={categories} />
 
-      <header sx={{height: '60px', width: '100vw', bg: 'primary', borderBottom: '1px solid', borderColor: 'primary', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-       {home ? (
+
+      { home ? (
          <>
            <img
              src="/images/profile.jpg"
@@ -49,14 +52,14 @@ export default function Layout({children, home}) {
            </Link>
           <h2 sx={{variant: 'text.headingLg'}}>
              <Link href="/">
-               <a sx={{ color: 'inherit'}}>{name}</a>
+               <a sx={{ color: 'inherit', textDecoration: 'none'}}>{name}</a>
              </Link>
            </h2>
          </>
        )}
-     </header>
+      }
      <main sx={{variant: 'containers.layout'}}>{children}</main>
-     {!home && (
+      {!home && (
        <div sx={{margin: '3rem 0 0'}}>
          <Link href="/">
            <a>← Back to home</a>
@@ -64,5 +67,7 @@ export default function Layout({children, home}) {
        </div>
      )}
    </div>
+
+
  )
 }

@@ -14,7 +14,7 @@ const theme = {
       width: '100%',
       maxWidth: '960px',
       m: 0,
-      //mx: 'auto'
+      mx: 'auto'
     },
     layout: {
       maxWidth: '36rem',
@@ -45,7 +45,23 @@ const theme = {
     headingM: {
       fontSize: '1.2rem',
       lineHeight: '1.5'
-    }
+    },
+  },
+  links: {
+    nav: {
+      px: 2,
+      py: 1,
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em',
+      textDecoration: 'none'
+    },
+  },
+  cards: {
+    primary: {
+      padding: 2,
+      borderRadius: 4,
+      boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)',
+    },
   },
   styles: {
     ...roboto.styles,
@@ -69,8 +85,8 @@ const theme = {
       },
       '*' : {
         boxSizing: 'border-box'
-      }
-    }
+      },
+    },
   }
 }
 

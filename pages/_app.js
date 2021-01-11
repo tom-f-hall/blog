@@ -1,7 +1,10 @@
 import * as React from 'react'
+import { createContext } from 'react'
 import NextApp from 'next/app'
 import { ThemeProvider } from 'theme-ui'
 import theme from '../style/theme'
+
+export const GlobalContext = createContext({})
 
 export default class App extends NextApp {
   render() {
