@@ -24,7 +24,7 @@ const Home = ({ articles, categories, homepage }) => {
 export async function getStaticProps() {
 
   const [ articles, categories ] = await Promise.all([
-    fetchAPI('/articles?status=published'),
+    fetchAPI('/articles'),
     fetchAPI('/categories'),
     //fetchAPI('/homepage')
   ])

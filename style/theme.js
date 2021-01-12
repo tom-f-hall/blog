@@ -2,6 +2,84 @@ import { roboto } from '@theme-ui/presets'
 
 const theme = {
   ...roboto,
+  colors: {
+    ...roboto.colors,
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#060606',
+        primary: '#3cf',
+        secondary: '#e0f',
+        muted: '#191919',
+        highlight: '#29112c',
+        gray: '#999',
+        purple: '#c0f',
+      },
+      deep: {
+        text: 'hsl(210, 50%, 96%)',
+        background: 'hsl(230, 25%, 18%)',
+        primary: 'hsl(260, 100%, 80%)',
+        secondary: 'hsl(290, 100%, 80%)',
+        highlight: 'hsl(260, 20%, 40%)',
+        purple: 'hsl(290, 100%, 80%)',
+        muted: 'hsla(230, 20%, 0%, 20%)',
+        gray: 'hsl(210, 50%, 60%)',
+      },
+      funk : {
+        primary: '#609',
+        secondary: '#306',
+      },
+      future: {
+        text: '#000',
+        background: '#fff',
+        primary: '#11e',
+        secondary: '#c0c',
+        highlight: '#e0e',
+        muted: '#f6f6ff',
+      },
+      futureDark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0fc',
+        secondary: '#0cf',
+        highlight: '#f0c',
+        muted: '#011',
+      },
+      polaris: {
+        text: '#454f5b',
+        background: '#fff',
+        primary: '#5c6ac4',
+        secondary: '#006fbb',
+        highlight: '#47c1bf',
+        muted: '#e6e6e6',
+        gray: '#dfe3e8',
+        accent: '#f49342',
+        darken: '#00044c',
+      },
+      polarisDark: {
+        text: '#3e4155',
+        background: '#000639',
+        primary: '#9c6ade',
+        secondary: '#b4e1fa',
+        highlight: '#b7ecec',
+        muted: '#e6e6e6',
+        gray: '#dfe3e8',
+        accent: '#f49342',
+        darken: '#00044c',
+      },
+      swiss: {
+        text: 'hsl(10, 20%, 20%)',
+        background: 'hsl(10, 10%, 98%)',
+        primary: 'hsl(10, 80%, 50%)',
+        secondary: 'hsl(10, 60%, 50%)',
+        highlight: 'hsl(10, 40%, 90%)',
+        purple: 'hsl(250, 60%, 30%)',
+        muted: 'hsl(10, 20%, 94%)',
+        gray: 'hsl(10, 20%, 50%)',
+      },
+
+    }
+  },
   containers: {
     card: {
       boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',

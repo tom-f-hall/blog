@@ -12,7 +12,8 @@ const ArticleSummary = ({ article }) => {
       <div sx={{
         variant: 'cards.primary',
         ':hover' : {
-          backgroundColor: 'primary'
+          backgroundColor: 'primary',
+          color: 'background'
         },
         cursor: 'pointer'
 

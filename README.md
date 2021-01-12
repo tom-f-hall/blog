@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+#TFH Blog
+
+Blog built with Next.js and hosted on Vercel
