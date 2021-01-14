@@ -3,20 +3,22 @@ import { jsx } from 'theme-ui'
 
 import Head from 'next/head'
 import Link from 'next/link'
+
 import Layout from '../components/layout'
 import Seo from '../components/seo'
+import ArticleListGrid from '../components/articleListGrid'
+
 import { fetchAPI } from '../lib/api'
 
 import Date from '../components/date'
 
 const Home = ({ articles, categories, homepage }) => {
-  console.log(categories)
   return (
     <Layout categories={categories} home>
       {/*<Seo seo={homepage.seo} /> */}
-      <div>
-        Welcome to my Blog. I'm Tom and I like making things, like this blog. Meta.
-      </div>
+      <h1 sx={{variant: 'text.headingLg'}}>Latest Posts</h1>
+
+      <ArticleListGrid articles={articles} />
     </Layout>
   )
 }
