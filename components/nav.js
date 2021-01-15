@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-import { useColorMode } from 'theme-ui'
+import { useColorMode, Button } from 'theme-ui'
 
 import Link from 'next/link'
 import NavLink from './navlink'
+
+import { PaintBucket } from 'phosphor-react'
 
 const Nav = ({ categories }) => {
 
@@ -13,27 +15,33 @@ const Nav = ({ categories }) => {
   const colourModes = [ 'default', 'dark', 'deep', 'funk', 'future', 'futureDark', 'polaris', 'polarisDark', 'swiss' ]
 
   return (
-    <header
+    <div
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        variant: 'styles.header'
-      }}>
+        //display: 'flex',
+        // alignItems: 'center',
+        // variant: 'styles.header'
+      }}
+    >
       <NavLink href='/' name='Tom Hall' />
-      <div sx={{ mx: 'auto' }} />
-      <button onClick={e => {
+      {/* <div sx={{ mx: 'auto' }} /> */}
+      <br />
+      <Button onClick={e => {
         const index = colourModes.indexOf(colourMode)
         const next = colourModes[(index + 1) % colourModes.length ]
         setColourMode(next)
       }}>
-        Colour
-      </button>
+        <PaintBucket/>
+      </Button>
+      <br />
       { categories.map((category) => {
         return(
-          <NavLink key={category.id} href={`/category/${category.name}`} name={`${category.name}`} />
+          <>
+            <NavLink key={category.id} href={`/category/${category.name}`} name={`${category.name}`} />
+            <br />
+          </>
         )
       }) }
-    </header>
+    </div>
   )
 }
 

@@ -4,8 +4,6 @@ import Link from 'next/link'
 
 const ArticleSummary = ({ article }) => {
 
-  console.log(article)
-
   return (
     <Link
       as={`/article/${article.id}`} href="/article/[id]">
@@ -16,10 +14,14 @@ const ArticleSummary = ({ article }) => {
           color: 'background'
         },
         cursor: 'pointer'
-
       }}>
         <h1 sx={{ variant: 'text.headingL'}}>{article.title}</h1>
-        <p>{article.summary}</p>
+        <p sx={{
+          width: '100%',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}>{article.summary}</p>
 
       </div>
     </Link>

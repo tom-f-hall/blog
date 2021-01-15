@@ -6,6 +6,7 @@ import { Styled } from 'theme-ui'
 import Link from 'next/link'
 
 import Date from './date'
+import ArticleSummary from './articleSummary'
 
 const ArticleListGrid = ({ articles }) => {
 
@@ -23,35 +24,35 @@ const ArticleListGrid = ({ articles }) => {
         py: 4,
       }}>
       {articles.map(article => (
-        <li key={article.id}
-          sx={{
-          }}>
-          <Styled.h2
-            sx={{
-              m: 0,
-            }}>
-            {article.title}
-            {/* <Link to={`${article.id}`}
-              sx={{
-                color: 'inherit',
-                textDecoration: 'none',
-                ':hover,:focus': {
-                  color: 'primary',
-                  textDecoration: 'underline',
-                }
-              }}>
-              {article.title}
-            </Link> */}
-          </Styled.h2>
-          <Date dateString={article.published_at} />
-          {/* <small sx={{ fontWeight: 'bold' }}>{article.published_at}</small> */}
-          <Styled.p
-            sx={{
-              m: 0,
-            }}>
-            {article.summary}
-          </Styled.p>
-        </li>
+        <ArticleSummary article={article} />
+        // {/* <li key={article.id}
+        //   sx={{
+        //   }}>
+        //   <Styled.h2
+        //     sx={{
+        //       m: 0,
+        //     }}>
+        //     <Link href={`article/${article.id}`}
+        //       sx={{
+        //         color: 'inherit',
+        //         textDecoration: 'none',
+        //         ':hover,:focus': {
+        //           color: 'primary',
+        //           textDecoration: 'underline',
+        //         }
+        //       }}>
+        //       {article.title}
+        //     </Link>
+        //   </Styled.h2>
+        //   <Date dateString={article.published_at} />
+        //   {/* <small sx={{ fontWeight: 'bold' }}>{article.published_at}</small> */}
+        //   <Styled.p
+        //     sx={{
+        //       m: 0,
+        //     }}>
+        //     {article.summary}
+        //   </Styled.p>
+        // </li> */}
       ))}
     </ul>
   )
