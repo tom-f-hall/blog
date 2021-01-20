@@ -22,9 +22,6 @@ export default function Layout({children, home, categories, seo}) {
   const [ menuOpen, setMenuOpen ] = useState(false)
   const node = useRef()
 
-
-
-
   return (
     <>
     <div ref={node}>
