@@ -25,13 +25,16 @@ const Article = ({ article, categories }) => {
     article: true
   }
 
+  // const imageUrl = getStrapiMedia(article.image);
+
   return(
     <Layout categories={categories}>
-      <Seo seo={seo} />
+      {/* <Seo seo={seo} /> */}
+      {/* <Image src={imageUrl} /> */}
       <h1 sx={{ variant: 'text.headingLg'}}>{article.title}</h1>
       <h2 sx={{ variant: 'text.headingM', textTransform: 'uppercase'}}>{`in ${article.category.name}`}</h2>
       <div sx ={{color: 'secondary'}}>
-        <Date dateString={article.published_at} />
+        <Date dateString={article.publishedAt} />
       </div>
       <ReactMarkdown source={article.content} escapteHTML={false} />
       {/*<div data-src={imageUrl} data-srcset={imageUrl} />*/}
@@ -44,7 +47,7 @@ export async function getStaticPaths() {
   return {
     paths: articles.map((article) => ({
       params: {
-        slug: `${article.id}`,
+        slug: `${article.slug}`,
       },
     })),
     fallback: false,
@@ -56,7 +59,7 @@ export async function getStaticProps({ params }) {
   console.log(params)
 
   const articles = await fetchAPI(
-    `/articles?id=${params.slug}`
+    `/articles?slug=${params.slug}`
   )
 
  // &status=published

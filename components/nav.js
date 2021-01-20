@@ -4,6 +4,7 @@ import { jsx } from 'theme-ui'
 import { useColorMode, Button } from 'theme-ui'
 
 import Link from 'next/link'
+
 import NavLink from './navlink'
 
 import { PaintBucket } from 'phosphor-react'
@@ -22,7 +23,7 @@ const Nav = ({ categories }) => {
         // variant: 'styles.header'
       }}
     >
-      <NavLink href='/' name='Tom Hall' />
+      <NavLink href='/' name='Home' />
       {/* <div sx={{ mx: 'auto' }} /> */}
       <br />
       <Button onClick={e => {
@@ -30,13 +31,13 @@ const Nav = ({ categories }) => {
         const next = colourModes[(index + 1) % colourModes.length ]
         setColourMode(next)
       }}>
-        <PaintBucket/>
+        <PaintBucket size={24}/>
       </Button>
       <br />
       { categories.map((category) => {
         return(
           <>
-            <NavLink key={category.id} href={`/category/${category.name}`} name={`${category.name}`} />
+            <NavLink key={category.id} href={`/category/${category.slug}`} name={`${category.name}`} />
             <br />
           </>
         )

@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+
 import Link from 'next/link'
 
 const ArticleSummary = ({ article }) => {
 
   return (
     <Link
-      as={`/article/${article.id}`} href="/article/[id]">
+      as={`/article/${article.slug}`} href="/article/[slug]">
       <div sx={{
         variant: 'cards.primary',
         ':hover' : {
@@ -19,16 +20,13 @@ const ArticleSummary = ({ article }) => {
         <p sx={{
           width: '100%',
           whiteSpace: 'nowrap',
+          lines: 3,
           overflow: 'hidden',
           textOverflow: 'ellipsis'
-        }}>{article.summary}</p>
-
+        }}>{article.description}</p>
       </div>
     </Link>
-
   )
-
-
 }
 
 export default ArticleSummary

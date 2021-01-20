@@ -3,8 +3,10 @@ import { useContext } from 'react'
 import { GlobalContext } from '../pages/_app'
 import { getStrapiMedia } from '../lib/media'
 
+
 const Seo = ({ seo }) => {
   const { defaultSeo, siteName } = useContext(GlobalContext)
+
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
@@ -17,7 +19,7 @@ const Seo = ({ seo }) => {
 
   return(
     <Head>
-      { fullSeo.metaTital && (
+      { fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
           <meta property="og:title" content={fullSeo.metaTitle} />

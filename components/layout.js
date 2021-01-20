@@ -1,11 +1,15 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
+import { useState, useRef } from 'react'
+
 import Head from 'next/head'
 import Link from 'next/link'
 
 import Nav from './nav'
+import NavLink from './navlink'
 import Footer from './footer'
+import { Menu, Burger } from './menu'
 
 const name = 'Tom Hall'
 export const siteTitle = `Tom's blog`
@@ -14,8 +18,94 @@ export const siteTitle = `Tom's blog`
 import { LinkedinLogo, TwitterLogo, GithubLogo } from 'phosphor-react'
 
 export default function Layout({children, home, categories, seo}) {
+
+  const [ menuOpen, setMenuOpen ] = useState(false)
+  const node = useRef()
+
+
+
+
   return (
-    <div
+    <>
+    <div ref={node}>
+      <Burger open={menuOpen} setOpen={setMenuOpen} />
+      <Menu open={menuOpen} setOpen={setMenuOpen}>
+        <img
+          src="/images/profile.jpg"
+          sx={{width: '8rem', height: '8rem', borderRadius: '9999px'}}
+          alt='Tom Hall'
+        />
+        <h1 sx={{variant: 'text.heading2Xl'}}>Tom Hall</h1>
+        <h1 sx={{variant: 'text.headingLg'}}>Blog</h1>
+        { categories.map((category) => {
+          return(
+            <NavLink key={category.id} href={`/category/${category.slug}`} name={`${category.name}`} />
+          )
+        }) }
+        <hr />
+        <NavLink key='about' href='/about' name='About' />
+        <NavLink key='kermit' href='/kermit' name='Kermit' />
+
+      </Menu>
+    </div>
+
+    <div sx={{
+      display: 'flex',
+      minHeight: '100vh',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '10px',
+    }}>
+    { home ? (
+       <>
+         <img
+           src="/images/profile.jpg"
+           sx={{width: '8rem', height: '8rem', borderRadius: '9999px'}}
+           alt={name}
+         />
+         <h1 sx={{variant: 'text.heading2Xl'}}>{name}</h1>
+         <div>
+           Welcome to my Blog. I'm Tom and I like making things, like this blog. Meta.
+         </div>
+         <span>
+        <a href='https://linkedin.com/in/thomasfhall' target="_blank">
+          <LinkedinLogo size={48}/>
+        </a>
+        <a href="https://twitter.com/tf_hall" target="_blank">
+          <TwitterLogo size={48} />
+        </a>
+        <a href="https://github.com/tom-f-hall" target="_blank">
+         <GithubLogo size={48}/>
+       </a>
+     </span>
+       </>
+     ) : (
+       <>
+         <Link href="/">
+           <a>
+             <img
+               src="/images/profile.jpg"
+               sx={{ width: '6rem', height: '6rem', borderRadius: '9999px'}}
+               alt={name}
+             />
+           </a>
+         </Link>
+        <h2 sx={{variant: 'text.headingLg'}}>
+           <Link href="/">
+             <a sx={{ color: 'inherit', textDecoration: 'none'}}>{name}</a>
+           </Link>
+         </h2>
+       </>
+     )}
+     <main>
+       {children}
+     </main>
+   </div>
+
+
+
+
+    {/* <div
       sx={{
         flexWrap: 'wrap',
         display: 'flex'
@@ -29,7 +119,6 @@ export default function Layout({children, home, categories, seo}) {
           bg: 'primary',
         }}
       >
-        Sidebar
         <Nav categories={categories} />
       </div>
     <div
@@ -89,8 +178,8 @@ export default function Layout({children, home, categories, seo}) {
        <main>{children}</main>
        <Footer />
     </div>
-  </div>
-
+  </div> */}
+</>
 
 
     // <div sx={{variant: 'containers.page'}}>
