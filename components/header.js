@@ -1,6 +1,6 @@
 import React from "react"
 import Link from "next/link"
-import { Box, Flex, Text, Button, Stack } from "@chakra-ui/react"
+import { Box, Flex, Text, Button, Stack, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react"
 import Logo from "./logo"
 
 import { XSquare, DotsThreeCircle } from "phosphor-react"
@@ -32,14 +32,14 @@ const Header = (props) => {
       w="100%"
       mb={8}
       p={8}
-      bg={["green.500", "green.500", "transparent", "transparent"]}
-      color={["white", "white", "green.700", "green.700"]}
+      bg={["blue.500", "blue.500", "transparent", "transparent"]}
+      color={["white", "white", "blue.700", "blue.700"]}
       {...props}
     >
       <Flex align="center">
         <Logo
           w="100px"
-          color={["white", "white", "green.500", "green.500"]}
+          color={["white", "white", "blue.500", "blue.500"]}
         />
       </Flex>
 
@@ -57,28 +57,38 @@ const Header = (props) => {
           direction={["column", "row", "row", "row"]}
           pt={[4, 4, 0, 0]}
         >
-          <MenuItems to="/">Home</MenuItems>
-          <MenuItems to="/how">How It works </MenuItems>
-          <MenuItems to="/faetures">Features </MenuItems>
-          <MenuItems to="/pricing">Pricing </MenuItems>
-          <MenuItems to="/signup" isLast>
+          <MenuItems to="/about">About</MenuItems>
+          <Menu>
+            <MenuButton as={Button}>
+              Blog
+            </MenuButton>
+            <MenuList>
+              <MenuItem><Link href='/blog'>Browse</Link></MenuItem>
+              <MenuItem><Link href='/category/dev'>Development</Link></MenuItem>
+              <MenuItem><Link href='/category/random'>Random</Link></MenuItem>
+            </MenuList>
+
+          </Menu>
+          <MenuItems to="/kermit">Kermit</MenuItems>
+          <MenuItems to="/contact" isLast>Contact</MenuItems>
+          {/* <MenuItems to="/signup" isLast>
             <Button
               size="sm"
               rounded="md"
-              color={["green.500", "green.500", "white", "white"]}
-              bg={["white", "white", "green.500", "green.500"]}
+              color={["blue.500", "blue.500", "white", "white"]}
+              bg={["white", "white", "blue.500", "blue.500"]}
               _hover={{
                 bg: [
-                  "green.100",
-                  "green.100",
-                  "green.600",
-                  "green.600",
+                  "blue.100",
+                  "blue.100",
+                  "blue.600",
+                  "blue.600",
                 ],
               }}
             >
               Create Account
             </Button>
-          </MenuItems>
+          </MenuItems> */}
         </Flex>
       </Box>
     </Flex>

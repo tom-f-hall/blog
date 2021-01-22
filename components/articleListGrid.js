@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-
+import { Wrap, WrapItem } from '@chakra-ui/react'
 import { Styled } from 'theme-ui'
 
 import Link from 'next/link'
@@ -11,20 +9,14 @@ import ArticleSummary from './articleSummary'
 const ArticleListGrid = ({ articles }) => {
 
   return(
-    <ul
-      sx={{
-        listStyle: 'none',
-        display: 'grid',
-        gridGap: 3,
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
-        m: 0,
-        px: 3,
-        py: 4,
-      }}>
+    <Wrap spacing="30px" justify="center"
+    >
       {articles.map(article => (
+        <WrapItem>
         <ArticleSummary key={article.slug} article={article} />
+      </WrapItem>
       ))}
-    </ul>
+    </Wrap>
   )
 }
 

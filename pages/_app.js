@@ -55,17 +55,17 @@ const App = ({ Component, pageProps, appProps }) => {
   )
 }
 
-App.getInitialProps = async (ctx) => {
-
-  const [ globalMeta, categories ] = await Promise.all([
-    fetchAPI('/global'),
-    fetchAPI('/categories')
-  ])
-
-  return {
-    appProps: { globalMeta, categories },
-    revalidate: 1,
-  }
-}
+// App.getInitialProps = async (ctx) => {
+//
+//   const [ globalMeta, categories ] = await Promise.all([
+//     fetchAPI('/global'),
+//     fetchAPI('/categories')
+//   ])
+//
+//   return {
+//     appProps: { globalMeta, categories },
+//     revalidate: 1,
+//   }
+// }
 
 export default App

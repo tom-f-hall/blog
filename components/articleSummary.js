@@ -1,30 +1,40 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { Box, Badge, Image, Button } from '@chakra-ui/react'
+
+import { getStrapiMedia } from '../lib/media'
 
 import Link from 'next/link'
 
 const ArticleSummary = ({ article }) => {
 
+  console.log(article)
+
+  const imageUrl = getStrapiMedia(article.image)
+
   return (
     <Link
       as={`/article/${article.slug}`} href="/article/[slug]">
-      <div sx={{
-        variant: 'cards.primary',
-        ':hover' : {
-          backgroundColor: 'primary',
-          color: 'background'
-        },
-        cursor: 'pointer'
-      }}>
-        <h1 sx={{ variant: 'text.headingL'}}>{article.title}</h1>
-        <p sx={{
-          width: '100%',
-          whiteSpace: 'nowrap',
-          lines: 3,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis'
-        }}>{article.description}</p>
-      </div>
+      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' _hover={{ cursor: 'pointer', bg: 'black', color: 'white'}}>
+        <Image src={imageUrl} alt={article.image.alternativeText} />
+        <Box p={6}>
+          <Box d="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="teal">
+              {article.category.name}
+            </Badge>
+          </Box>
+          <Box
+            mt="1"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            isTruncated
+          >
+            {article.title}
+          </Box>
+          <Box>
+            {article.description}
+          </Box>
+        </Box>
+      </Box>
     </Link>
   )
 }

@@ -1,8 +1,8 @@
-
+import { Box, SimpleGrid } from '@chakra-ui/react'
 
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
-import ArticleSummary from '../../components/articleSummary'
+import ArticleListGrid from '../../components/articleListGrid'
 
 import { fetchAPI } from '../../lib/api'
 
@@ -14,15 +14,17 @@ const Category = ({ category, categories}) => {
   }
 
   return (
-    <div sx={{variant: 'containers.page'}}>
-
+    <Box
+    //   align='center'
+    //   px={8}
+    //   mb={16}
+    >
       <h1>{`${category.name} articles`}</h1>
-      { category.articles.map(article => {
-        return (
-          <ArticleSummary key={article.id} article={article} />
-        )
-      })}
-    </div>
+      <ArticleListGrid articles={category.articles} />
+
+
+
+    </Box>
 
   )
 
