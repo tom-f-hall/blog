@@ -8,13 +8,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.1.5",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@theme-ui/presets": "^0.3.5",
     "date-fns": "^2.16.1",
+    "disqus-react": "^1.0.10",
+    "formik": "^2.2.6",
+    "framer-motion": "^3.2.1",
     "next": "^10.0.0",
     "phosphor-react": "^1.1.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-images": "^1.1.7",
     "react-markdown": "^5.0.3",
-    "theme-ui": "^0.3.5"
+    "theme-ui": "^0.3.5",
+    "yup": "^0.32.8"
   }
 }

@@ -1,15 +1,23 @@
 import { getStrapiMedia } from '../lib/media'
 
-const Image = ({ image, style }) => {
+import Image from 'next/image'
+
+
+const NextImage = ({ image, style }) => {
   const imageUrl = getStrapiMedia(image)
 
+  console.log(image)
+
   return(
-    <img
+    <Image
       src={imageUrl}
       alt={image.alternativeText || image.name}
-      style={style}
+      width={style.width}
+      height={style.height}
+      layout='responsive'
+
     />
   )
 }
 
-export default Image
+export default NextImage

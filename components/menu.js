@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
+// from https://codepen.io/maximakymenko/pen/aboWJpX
+
 import { useEffect } from 'react'
 
 export const Burger = ({ open, setOpen }) => {
@@ -20,7 +22,7 @@ export const Burger = ({ open, setOpen }) => {
 
   return(
     <button open={open} onClick={() => setOpen(!open)} sx={{
-      position: 'absolute',
+      position: 'fixed',
       top: '5%',
       right: '2rem',
       display: 'flex',
@@ -68,10 +70,10 @@ export const Menu = ({ open, children }) => {
     textDecoration: 'none',
     transition: 'color 0.3s linear',
 
-    '@media (max-width: 576px)': {
+
       fontSize: '1.5rem',
-      textAlign: 'center'
-    },
+      textAlign: 'center',
+
 
     '&:hover': {
       color: '#343078'
@@ -93,7 +95,8 @@ export const Menu = ({ open, children }) => {
       top: 0,
       right: 0,
       transition: 'transform 0.3s ease-in-out',
-      width: '100%'
+      width: '100%',
+
     }}>
       {children}
     </div>

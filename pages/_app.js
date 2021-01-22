@@ -1,38 +1,71 @@
-import * as React from 'react'
-import { createContext } from 'react'
-import NextApp, { Container } from 'next/app'
-import { ThemeProvider } from 'theme-ui'
-import theme from '../style/theme'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
-export const GlobalContext = createContext({})
+import React from 'react'
 
-export default class App extends NextApp {
-  render() {
-    console.log(this)
-    const { Component, pageProps } = this.props
+// THEME
+import { ThemeProvider, useColorMode } from 'theme-ui'
+// import theme from '../style/theme'
 
-    return (
-      <GlobalContext.Provider>
-        <Container>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </Container>
-      </GlobalContext.Provider>
-    )
-  }
+import { ChakraProvider } from '@chakra-ui/react'
+import extendedTheme from '../theme'
+
+// COMPONENTS
+import SiteMenu from '../layout/menu'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import ThemeToggle from '../components/themeToggle'
+
+// HELPERS
+import { fetchAPI } from '../lib/api'
+
+import { PaintBucket } from 'phosphor-react'
+
+
+
+import { Flex } from '@chakra-ui/react'
+
+
+const App = ({ Component, pageProps, appProps }) => {
+
+  return (
+    <ChakraProvider >
+
+      {/* <SiteMenu categories={appProps.categories}/> */}
+      {/* <div as='main' id='route' sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '10px'
+      }}> */}
+      <Flex
+        direction='column'
+        align='center'
+        maxW={{ xl: '1200px' }}
+        m='0 auto'
+        // {...pageProps}
+      >
+        <Header />
+        {/* <ThemeToggle /> */}
+        <Component {...pageProps} />
+      </Flex>
+      <Footer />
+    </ChakraProvider>
+  )
 }
 
-export async function getStaticProps() {
+App.getInitialProps = async (ctx) => {
 
-  const globalProps = await Promise(
+  const [ globalMeta, categories ] = await Promise.all([
     fetchAPI('/global'),
-  )
-  console.log(globalProps)
-
+    fetchAPI('/categories')
+  ])
 
   return {
-    props: { globalProps },
+    appProps: { globalMeta, categories },
     revalidate: 1,
   }
 }
+
+export default App

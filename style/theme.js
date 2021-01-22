@@ -141,6 +141,49 @@ const theme = {
       boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)',
     },
   },
+  forms: {
+    input: {
+      bg: 'elevated',
+      color: 'text',
+      fontFamily: 'inherit',
+      borderRadius: 'base',
+      border: 0,
+      '::-webkit-input-placeholder': { color: 'placeholder' },
+      '::-moz-placeholder': { color: 'placeholder' },
+      ':-ms-input-placeholder': { color: 'placeholder' },
+      '&[type="search"]::-webkit-search-decoration': { display: 'none' }
+    },
+    textarea: { variant: 'forms.input' },
+    select: { variant: 'forms.input' },
+    label: {
+      color: 'text',
+      display: 'flex',
+      flexDirection: 'column',
+      textAlign: 'left',
+      lineHeight: 'caption',
+      fontSize: 2
+    },
+    labelHoriz: {
+      color: 'text',
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'left',
+      lineHeight: 'caption',
+      fontSize: 2,
+      svg: { color: 'muted' }
+    },
+    slider: {
+      color: 'primary'
+    },
+    hidden: {
+      position: 'absolute',
+      height: '1px',
+      width: '1px',
+      overflow: 'hidden',
+      clip: 'rect(1px, 1px, 1px, 1px)',
+      whiteSpace: 'nowrap'
+    }
+  },
   styles: {
     ...roboto.styles,
     root: {

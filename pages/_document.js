@@ -1,5 +1,7 @@
+import { ColorModeScript } from '@chakra-ui/react'
+
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { InitializeColorMode } from 'theme-ui'
+import extendedTheme from '../theme'
 
 export default class extends Document {
   static async getInitialProps(ctx) {
@@ -11,10 +13,11 @@ export default class extends Document {
     // Replace html lang attribute value with your language.
     return (
       <>
-        <Head />
+
         <Html lang="en">
+          <Head />
           <body>
-            <InitializeColorMode />
+            <ColorModeScript initialColorMode={extendedTheme.config.initialColorMode} />
             <Main />
             <NextScript />
           </body>

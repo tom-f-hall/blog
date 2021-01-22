@@ -13,6 +13,10 @@ import { fetchAPI } from '../../lib/api'
 import { getStrapiMedia } from '../../lib/media'
 import ReactMarkdown from 'react-markdown'
 
+import { DiscussionEmbed } from 'disqus-react'
+
+import { useRouter } from 'next/router'
+
 const Article = ({ article, categories }) => {
   //const imageUrl = getStrapiMedia(article.image)
   //
@@ -25,10 +29,11 @@ const Article = ({ article, categories }) => {
     article: true
   }
 
+
   // const imageUrl = getStrapiMedia(article.image);
 
   return(
-    <Layout categories={categories}>
+    <div sx={{variant: 'containers.page'}}>
       {/* <Seo seo={seo} /> */}
       {/* <Image src={imageUrl} /> */}
       <h1 sx={{ variant: 'text.headingLg'}}>{article.title}</h1>
@@ -37,8 +42,18 @@ const Article = ({ article, categories }) => {
         <Date dateString={article.publishedAt} />
       </div>
       <ReactMarkdown source={article.content} escapteHTML={false} />
+      <DiscussionEmbed
+        shortname='tfhall-com'
+        config={
+          {
+            url: 'http://localhost:3000',
+            identifier: article.slug,
+            title: article.title,
+          }
+        }
+      />
       {/*<div data-src={imageUrl} data-srcset={imageUrl} />*/}
-    </Layout>
+    </div>
   )
 }
 

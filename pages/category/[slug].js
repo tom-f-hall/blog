@@ -14,15 +14,16 @@ const Category = ({ category, categories}) => {
   }
 
   return (
-    <Layout categories={categories}>
-      {/* <Seo seo={seo} /> */}
+    <div sx={{variant: 'containers.page'}}>
+
       <h1>{`${category.name} articles`}</h1>
       { category.articles.map(article => {
         return (
           <ArticleSummary key={article.id} article={article} />
         )
       })}
-    </Layout>
+    </div>
+
   )
 
 }

@@ -10,8 +10,6 @@ import ArticleSummary from './articleSummary'
 
 const ArticleListGrid = ({ articles }) => {
 
-  console.log(articles)
-
   return(
     <ul
       sx={{
