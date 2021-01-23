@@ -30,17 +30,22 @@ import {
   Avatar,
 } from "@chakra-ui/react"
 
-
 // CUSTOM
+import AvatarMenu from './avatarMenu'
 import Logo from "./logo"
 import Container from './container'
 import ThemeToggle from './themeToggle'
 
 // ICONS
-import { XSquare, DotsThreeCircle, CaretDown, Code, ShuffleAngular, Link as LinkIcon, Book, Wrench } from "phosphor-react"
-
-
-
+import {
+  CaretDown,
+  Code,
+  ShuffleAngular,
+  Link as LinkIcon,
+  Book,
+  Wrench,
+  BookOpen
+} from "phosphor-react"
 
 const NavLink = (props) => {
   const { href, name, ...rest } = props
@@ -87,6 +92,7 @@ const Header = () => {
       <Container>
         <VStack align='start' spacing={0}>
           <HStack justify='space-between' w='100%' h={16}>
+            <Logo />
             <HStack ml={-4} spacing={2}>
               <NavLink href='/about' name='About'/>
               <Menu>
@@ -100,6 +106,20 @@ const Header = () => {
                   Blog
                 </MenuButton>
                 <MenuList>
+                  <Link href='/blog'>
+                    <MenuItem>
+                      <HStack>
+                        <Icon
+                          as={BookOpen}
+                          size={18}
+                          color={useColorModeValue('blue.500', 'blue.200')}
+                        >
+                        </Icon>
+                        <Text>Browse</Text>
+                      </HStack>
+                    </MenuItem>
+                  </Link>
+                  <Divider />
                   <Link href='/category/dev'>
                     <MenuItem>
                       <HStack>
@@ -113,7 +133,7 @@ const Header = () => {
                       </HStack>
                     </MenuItem>
                   </Link>
-                  <Link href='/category/dev'>
+                  <Link href='/category/random'>
                     <MenuItem>
                       <HStack>
                         <Icon
@@ -122,13 +142,13 @@ const Header = () => {
                           color={useColorModeValue('blue.500', 'blue.200')}
                         >
                         </Icon>
-                        <Text>Random</Text>                    </HStack>
+                        <Text>Random</Text>
+                      </HStack>
                     </MenuItem>
                   </Link>
                 </MenuList>
               </Menu>
               <NavLink href='/kermit' name='Kermit'/>
-              <NavLink href='/library' name='Library' />
               <Menu>
                 <MenuButton
                   as={Button}

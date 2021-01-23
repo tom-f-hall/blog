@@ -14,7 +14,7 @@ const ArticleSummary = ({ article }) => {
       href="/article/[slug]"
     >
       <Box
-        maxW='sm'
+        maxW='300px'
         borderWidth='1px'
         borderRadius='lg'
         overflow='hidden'

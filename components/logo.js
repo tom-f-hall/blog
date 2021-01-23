@@ -6,7 +6,7 @@ export default function Logo(props) {
   return (
     <Box {...props}>
       <Link href='/'>
-      <Text fontSize="lg" fontWeight="bold">
+      <Text fontSize="lg" fontWeight="bold" _hover={{ cursor: 'pointer'}}>
         Tom's Blog
       </Text>
     </Link>

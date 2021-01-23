@@ -39,7 +39,7 @@ export default function Hero({
           as="h1"
           size="xl"
           fontWeight="bold"
-          color="blue.800"
+          //color="blue.800"
           textAlign={["center", "center", "left", "left"]}
         >
           {title}
@@ -47,7 +47,7 @@ export default function Hero({
         <Heading
           as="h2"
           size="md"
-          color="blue.800"
+          //color="blue.800"
           opacity="0.8"
           fontWeight="normal"
           lineHeight={1.5}
@@ -67,7 +67,7 @@ export default function Hero({
             {ctaText}
           </Button>
         </Link>
-        <Text
+        {/* <Text
           fontSize="xs"
           mt={2}
           textAlign="center"
@@ -75,7 +75,7 @@ export default function Hero({
           opacity="0.6"
         >
           No credit card required.
-        </Text>
+        </Text> */}
       </Stack>
       <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
         <Image src={image} size="100%" rounded="1rem" shadow="2xl" />

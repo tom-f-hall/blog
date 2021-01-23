@@ -11,6 +11,9 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import ThemeToggle from '../components/themeToggle'
 
+import MobileNavigation from '../components/mobileNavigation'
+
+
 // HELPERS
 import { fetchAPI } from '../lib/api'
 
@@ -25,6 +28,7 @@ const App = ({ Component, pageProps, appProps }) => {
         {/* <ThemeToggle /> */}
         <Component {...pageProps} />
       </Box>
+      <MobileNavigation />
       <Footer />
     </ChakraProvider>
   )

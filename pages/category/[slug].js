@@ -1,8 +1,10 @@
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid, Heading } from '@chakra-ui/react'
 
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import ArticleListGrid from '../../components/articleListGrid'
+import Section from '../../components/section'
+import PageTransition from '../../components/pageTransition'
 
 import { fetchAPI } from '../../lib/api'
 
@@ -14,18 +16,12 @@ const Category = ({ category, categories}) => {
   }
 
   return (
-    <Box
-    //   align='center'
-    //   px={8}
-    //   mb={16}
-    >
-      <h1>{`${category.name} articles`}</h1>
-      <ArticleListGrid articles={category.articles} />
-
-
-
-    </Box>
-
+    <PageTransition>
+      <Section>
+        <Heading>{`${category.name} articles`}</Heading>
+        <ArticleListGrid articles={category.articles} />
+      </Section>
+    </PageTransition>
   )
 
 }

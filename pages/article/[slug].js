@@ -1,11 +1,13 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
 
 // COMPONENTS
-import Layout from '../../components/layout'
-import Image from '../../components/image'
+import Section from '../../components/section'
+import PageTransition from '../../components/pageTransition'
+
+
 import Date from '../../components/date'
 import Seo from '../../components/seo'
+
+import { Heading, Text, Box, Image } from '@chakra-ui/react'
 
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 
@@ -18,6 +20,7 @@ import ReactMarkdown from 'react-markdown'
 import { DiscussionEmbed } from 'disqus-react'
 
 import { useRouter } from 'next/router'
+
 
 const Article = ({ article, categories }) => {
   //const imageUrl = getStrapiMedia(article.image)
@@ -35,27 +38,32 @@ const Article = ({ article, categories }) => {
   // const imageUrl = getStrapiMedia(article.image);
 
   return(
-    <div sx={{variant: 'containers.page'}}>
-      {/* <Seo seo={seo} /> */}
-      {/* <Image src={imageUrl} /> */}
-      <h1 sx={{ variant: 'text.headingLg'}}>{article.title}</h1>
-      <h2 sx={{ variant: 'text.headingM', textTransform: 'uppercase'}}>{`in ${article.category.name}`}</h2>
-      <div sx ={{color: 'secondary'}}>
-        <Date dateString={article.publishedAt} />
-      </div>
-      <ReactMarkdown renderers={ChakraUIRenderer()} source={article.content} escapteHTML={false} />
-      <DiscussionEmbed
-        shortname='tfhall-com'
-        config={
-          {
-            url: 'http://localhost:3000',
-            identifier: article.slug,
-            title: article.title,
+    <PageTransition>
+      <Section>
+        <Image src={getStrapiMedia(article.image)}/>
+        <Heading>{article.title}</Heading>
+
+        <Text>{`in ${article.category.name}`}</Text>
+        <Box>
+          <Date dateString={article.publishedAt} />
+        </Box>
+        <br />
+        <br />
+        <ReactMarkdown renderers={ChakraUIRenderer()} source={article.content} escapteHTML={false} />
+        <br />
+        <br />
+        <DiscussionEmbed
+          shortname='tfhall-com'
+          config={
+            {
+              url: 'http://localhost:3000',
+              identifier: article.slug,
+              title: article.title,
+            }
           }
-        }
-      />
-      {/*<div data-src={imageUrl} data-srcset={imageUrl} />*/}
-    </div>
+        />
+    </Section>
+  </PageTransition>
   )
 }
 

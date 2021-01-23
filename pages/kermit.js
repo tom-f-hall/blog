@@ -1,70 +1,41 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-
-import React, { useState, useCallback } from 'react'
-
 import NextImage from '../components/image'
 import { fetchAPI } from '../lib/api'
+import { getStrapiMedia } from '../lib/media'
 
-import Carousel, { Modal, ModalGateway } from 'react-images'
+import Section from '../components/section'
+import PageTransition from '../components/pageTransition'
+
+import { Heading, Text, Wrap, WrapItem, Image, SimpleGrid } from '@chakra-ui/react'
 
 const KermitPage = (props) => {
 
-  const [ modalOpen, setModalOpen ] = useState(false)
-
-  const toggleModal = () => {
-    setModalOpen(!modalOpen)
-  }
-
-
   return(
-    <div sx={{variant: 'containers.page'}}>
+    <PageTransition>
+      <Section>
+        <Heading>
+          Kermit's Korner
+        </Heading>
+        <Text>No website is complete without a tribute to the glorious Kermander Kermit. All hail Kermit</Text>
+        <SimpleGrid columns={[1, 2]} spacing={4}>
+          {props.pageData.images.map(image => (
 
-      <ModalGateway>
-        { modalOpen ? (
-          <Modal onClose={() => toggleModal()}>
-            <Carousel views={props.pageData.images} />
-          </Modal>
-        ) : null }
-      </ModalGateway>
+              <Image src={getStrapiMedia(image)} />
 
+            // <WrapItem>
+              // <NextImage
+              //   image={image}
+              //   style={{
+              //     width:'100%',
+              //     height:'100px'// height:400,
+              //   }}
+              // />
+            // </WrapItem>
+            )
+          )}
+        </SimpleGrid>
 
-      Kermit's Korner
-
-      <button onClick={() => toggleModal()}>Click me</button>
-      <div sx={{
-        listStyle: 'none',
-        display: 'grid',
-        gridGap: 3,
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
-        m: 0,
-        px: 3,
-        py: 4,
-      }}>
-        {props.pageData.images.map(image => {
-          return(
-            <div sx={{
-              boxShadow: 'base',
-              overflow: 'hidden',
-              width: '300px',
-              bg: 'white',
-              ':hover' : {
-                boxShadow: '2px primary'
-              }
-            }}>
-            <NextImage
-              image={image}
-              style={{
-                width:'100%',
-                height:'100px'// height:400,
-              }}
-            />
-
-          </div>
-        )
-        })}
-      </div>
-    </div>
+      </Section>
+    </PageTransition>
   )
 }
 
