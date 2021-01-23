@@ -7,6 +7,8 @@ import Image from '../../components/image'
 import Date from '../../components/date'
 import Seo from '../../components/seo'
 
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+
 
 // HELPERS
 import { fetchAPI } from '../../lib/api'
@@ -41,7 +43,7 @@ const Article = ({ article, categories }) => {
       <div sx ={{color: 'secondary'}}>
         <Date dateString={article.publishedAt} />
       </div>
-      <ReactMarkdown source={article.content} escapteHTML={false} />
+      <ReactMarkdown renderers={ChakraUIRenderer()} source={article.content} escapteHTML={false} />
       <DiscussionEmbed
         shortname='tfhall-com'
         config={

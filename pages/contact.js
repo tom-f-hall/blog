@@ -21,7 +21,7 @@ const validationSchema = yup.object().shape({
 
 const ContactPage = () => {
   return(
-    <Box w={500} p={4} m="20px auto" align="center">
+    <Box w={['100%', '100%', '75%', '50%']} p={4} m="20px auto" align="center">
       <Heading as='h1' size='xl' textAlign='center'>
         Get in touch
       </Heading>

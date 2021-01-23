@@ -1,23 +1,58 @@
-import { Box } from '@chakra-ui/react'
-
+// NEXT
 import Link from 'next/link'
+
+// CHAKRA COMPONENTS
+import {
+  HStack,
+  Button,
+  useColorMode,
+  Text,
+  useColorModeValue
+} from '@chakra-ui/react'
+
+// CUSTOM COMPONENTS
+import Container from './container'
+
 
 const Footer = ({}) => {
 
-  return (
-    <Box as="footer" marginTop="2rem" fontSize="xl" bg='background'>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <Link
-          isExternal
-          textDecor="underline"
-          color="black.500"
-          href="https://www.nextjs.org"
+  const date = new Date().getFullYear()
+
+  const FooterLink = (props) => {
+
+    const { href, name, ...rest } = props
+
+    return(
+      <Link href={href} passHref>
+        <Button
+          variant='unstyled'
+          {...rest}
+          color={useColorModeValue('gray.500', 'gray.600')}
+          _hover={{ color: useColorModeValue('gray.600', 'gray.600')}}
         >
-          Next.js
-        </Link>
-        , Chakra-UI, Strapi, Vercel & Heroku
-      </Box>
+          {name}
+        </Button>
+      </Link>
+    )
+  }
+
+  return (
+    <Container>
+      <HStack
+        justify='space-between'
+        w='100%'
+        display={{ base: 'none', md: 'flex'}}
+        py={4}
+      >
+        <Text fontSize='sm' color={useColorModeValue('gray.500', 'gray.600')}>
+          © { date } Tom Hall{` `}
+        </Text>
+        <HStack spacing={4}>
+          <FooterLink href='/disclaimer' name='Disclaimer' />
+          <FooterLink href='/privacy' name='Privacy'/>
+        </HStack>
+      </HStack>
+    </Container>
   )
 }
 

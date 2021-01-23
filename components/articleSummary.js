@@ -6,18 +6,24 @@ import Link from 'next/link'
 
 const ArticleSummary = ({ article }) => {
 
-  console.log(article)
-
   const imageUrl = getStrapiMedia(article.image)
 
   return (
     <Link
-      as={`/article/${article.slug}`} href="/article/[slug]">
-      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' _hover={{ cursor: 'pointer', bg: 'black', color: 'white'}}>
+      as={`/article/${article.slug}`}
+      href="/article/[slug]"
+    >
+      <Box
+        maxW='sm'
+        borderWidth='1px'
+        borderRadius='lg'
+        overflow='hidden'
+        _hover={{ cursor: 'pointer', bg: 'black', color: 'white'}}
+      >
         <Image src={imageUrl} alt={article.image.alternativeText} />
         <Box p={6}>
           <Box d="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="blue">
               {article.category.name}
             </Badge>
           </Box>
