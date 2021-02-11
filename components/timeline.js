@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 // CHAKRA
 import {
@@ -42,7 +42,17 @@ const Timeline = ({ events }) => {
   const [ eventsToDisplay, setEventsToDisplay ] = useState([])
   const [ sortOrder, setSortOrder ] = useState('ascending')
 
+  const { items, requestSort, sortConfig } = useSortableData(eventsToDisplay)
+
+
   // on mount
+  /**
+   * * Creates array of unique types from input events. Used to create type filter
+   * ! Deps
+   * ? Query
+   * TODO: null
+   *  
+   */
   useEffect(() => {
     let types = []
     events.map(event => {
@@ -52,25 +62,26 @@ const Timeline = ({ events }) => {
     const typesState = []
     types.map((type, idx) => ( typesState.push({name: type, active: true, colour: colours[idx] })))
     setFilterState(typesState)
+    requestSort('date')
   }, [])
 
   // Data refresh on filter change
   useEffect(() => {
     let types = filterState.filter(type => type.active == true).map(activeFilter => activeFilter.name)
-    let filteredEvents = sortEvents(events.filter(event => types.includes(event.type)))
+    let filteredEvents = events.filter(event => types.includes(event.type))
     setEventsToDisplay(filteredEvents)
 
   }, [filterState, events])
 
-  const sortEvents = (events) => {
-    return sortOrder == 'ascending' ? events.sort( (a, b) => new Date(a.date) - new Date(b.date) ) : events.sort( (a, b) => new Date(b.date) - new Date(a.date) )
-  }
+  // const sortEvents = (events) => {
+  //   return sortOrder == 'ascending' ? events.sort( (a, b) => new Date(a.date) - new Date(b.date) ) : events.sort( (a, b) => new Date(b.date) - new Date(a.date) )
+  // }
 
-  // Data refresh on sort order change
-  useEffect(() => {
-    let sortedEvents = sortEvents(eventsToDisplay)
-    setEventsToDisplay(sortedEvents)
-  }, [sortOrder, eventsToDisplay])
+  // // Data refresh on sort order change
+  // useEffect(() => {
+  //   let sortedEvents = sortEvents(eventsToDisplay)
+  //   setEventsToDisplay(sortedEvents)
+  // }, [sortOrder])
 
   const Line = () => (
     <Box
@@ -89,9 +100,6 @@ const Timeline = ({ events }) => {
     setFilterState(newFilterState)
   }
 
-  const handleOrderChange = (e) => {
-    setSortOrder( sortOrder == 'ascending' ? 'descending' : 'ascending')
-  }
 
   return (
     <>
@@ -116,8 +124,8 @@ const Timeline = ({ events }) => {
             <MenuList>
               <MenuItem>
                 <HStack>
-                  <Icon as={ sortOrder == 'ascending' ? SortAscending : SortDescending}/>
-                  <Text onClick={() => handleOrderChange()}>{ sortOrder == 'ascending' ? 'Descending' : 'Ascending' }</Text>
+                  <Icon as={ sortConfig?.direction == 'ascending' ? SortAscending : SortDescending }/>
+                  <Text onClick={() => requestSort('date')}>{ sortConfig?.direction == 'ascending' ? 'Descending' : 'Ascending' }</Text>
                 </HStack>
               </MenuItem>
             </MenuList>
@@ -156,7 +164,7 @@ const Timeline = ({ events }) => {
         <VStack>
           <>
             <Line />
-            {eventsToDisplay.map((event, idx) => (
+            {items.map((event, idx) => (
               <Event key={idx} idx={idx} event={event} />
             ))}
           </>
@@ -255,6 +263,42 @@ const Event = ({ idx, event }) => {
       </Flex>
     </Flex>
   )
+}
+
+// https://codesandbox.io/s/table-sorting-example-ur2z9?from-embed=&file=/src/App.js:51-977
+
+const useSortableData = (items, config = null) => {
+  const [sortConfig, setSortConfig] = useState(config)
+
+  const sortedItems = useMemo(() => {
+    let sortableItems = [...items]
+    if (sortConfig !== null) {
+      sortableItems.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? -1 : 1
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? 1 : -1
+        }
+        return 0
+      });
+    }
+    return sortableItems
+  }, [items, sortConfig])
+
+  const requestSort = (key) => {
+    let direction = 'ascending'
+    if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === 'ascending'
+    ) {
+      direction = 'descending'
+    }
+    setSortConfig({ key, direction })
+  }
+
+  return { items: sortedItems, requestSort, sortConfig } 
 }
 
 export default Timeline
