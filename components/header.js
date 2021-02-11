@@ -160,7 +160,7 @@ const Header = () => {
                   Library
                 </MenuButton>
                 <MenuList>
-                  <Link href='/library/links'>
+                  <Link href='/links'>
                     <MenuItem>
                       <HStack>
                         <Icon
@@ -173,7 +173,7 @@ const Header = () => {
                       </HStack>
                     </MenuItem>
                   </Link>
-                  <Link href='/library/books'>
+                  <Link href='/books'>
                     <MenuItem>
                       <HStack>
                         <Icon
@@ -186,7 +186,7 @@ const Header = () => {
                       </HStack>
                     </MenuItem>
                   </Link>
-                  <Link href='/library/tools'>
+                  <Link href='/tools'>
                     <MenuItem>
                       <HStack>
                         <Icon
@@ -200,6 +200,7 @@ const Header = () => {
                     </MenuItem>
                   </Link>
                 </MenuList>
+                <NavLink href='/contact' name='Contact'/>
               </Menu>
             </HStack>
             <HStack>

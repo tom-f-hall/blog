@@ -6,7 +6,7 @@ import { useState, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import Nav from './nav'
+
 import NavLink from './navlink'
 import Footer from './footer'
 import { Menu, Burger } from './menu'
