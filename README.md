@@ -1,3 +1,9 @@
-#TFH Blog
+# TFH Blog
 
-Blog built with Next.js and hosted on Vercel
+React
+Typescript
+Next.js
+Chakra UI
+Emotion
+Algolia Search
+Strapi CMS

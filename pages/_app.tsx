@@ -1,3 +1,4 @@
+import { AppProps } from 'next/app'
 
 
 import React from 'react'
@@ -19,7 +20,7 @@ import { fetchAPI } from '../lib/api'
 
 
 
-const App = ({ Component, pageProps, appProps }) => {
+const App = ({ Component, pageProps } : AppProps) => {
 
   return (
     <ChakraProvider resetCSS theme={extendedTheme}>
