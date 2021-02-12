@@ -1,0 +1,22 @@
+// REACT
+import * as React from 'react'
+
+// CHAKRA
+import { Box, useColorModeValue as mode } from '@chakra-ui/react'
+
+// CUSTOM
+import { NavContent } from './NavContent'
+
+
+const Header = () => {
+  return (
+    <Box as="header" bg={mode('white', 'gray.800')} position="relative" zIndex="10">
+      <Box as="nav" aria-label="Main navigation" maxW="7xl" mx="auto" px={{ base: '6', md: '8' }}>
+        <NavContent.Mobile display={{ base: 'flex', lg: 'none' }} />
+        <NavContent.Desktop display={{ base: 'none', lg: 'flex' }} />
+      </Box>
+    </Box>
+  )
+}
+
+export default Header

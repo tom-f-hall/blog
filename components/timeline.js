@@ -31,6 +31,7 @@ import { getStrapiMedia } from '../lib/media'
 // ICONS
 import { CaretDown, SortAscending, SortDescending, FileText } from 'phosphor-react'
 
+
 const colours = [ 'red', 'yellow', 'teal', 'blue', 'green', 'orange']
 
 
@@ -93,6 +94,7 @@ const Timeline = ({ events }) => {
       height='100%'
     />
   )
+
 
   const handleFilterChange = (e) => {
     let newFilterState = filterState.map(filter => {return {...filter }})

@@ -7,12 +7,8 @@ import { ChakraProvider, Box } from '@chakra-ui/react'
 import extendedTheme from '../theme'
 
 // COMPONENTS
-import SiteMenu from '../layout/menu'
-import Header from '../components/header'
+import Header from '../components/nav/Header'
 import Footer from '../components/footer'
-import ThemeToggle from '../components/themeToggle'
-
-import MobileNavigation from '../components/mobileNavigation'
 
 
 // HELPERS
@@ -29,7 +25,6 @@ const App = ({ Component, pageProps } : AppProps) => {
         {/* <ThemeToggle /> */}
         <Component {...pageProps} />
       </Box>
-      <MobileNavigation />
       <Footer />
     </ChakraProvider>
   )

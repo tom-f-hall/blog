@@ -13,6 +13,7 @@ import Timeline from '../components/timeline'
 import { fetchAPI } from '../lib/api'
 import { getStrapiMedia } from '../lib/media'
 
+
 const AboutPage = (props) => {
 
   console.log(props.pageData)
