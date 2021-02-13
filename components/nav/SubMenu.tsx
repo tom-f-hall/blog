@@ -12,6 +12,15 @@ interface SubmenuProps {
     label: string;
     href: string;
     children?: undefined
+  } | { 
+    label: string;
+    href: string;
+    children: { 
+      label: string; 
+      href: string; 
+      icon: Element; 
+      description: string;
+    } []; 
   }
 }
 
