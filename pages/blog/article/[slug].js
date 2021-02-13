@@ -1,11 +1,11 @@
 
 // COMPONENTS
-import Section from '../../components/section'
-import PageTransition from '../../components/pageTransition'
+import Section from '../../../components/section'
+import PageTransition from '../../../components/pageTransition'
 
 
-import Date from '../../components/date'
-import Seo from '../../components/seo'
+import Date from '../../../components/date'
+import Seo from '../../../components/seo'
 
 import { Heading, Text, Box, Image } from '@chakra-ui/react'
 
@@ -13,8 +13,8 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 
 
 // HELPERS
-import { fetchAPI } from '../../lib/api'
-import { getStrapiMedia } from '../../lib/media'
+import { fetchAPI } from '../../../lib/api'
+import { getStrapiMedia } from '../../../lib/media'
 import ReactMarkdown from 'react-markdown'
 
 import { DiscussionEmbed } from 'disqus-react'
