@@ -16,7 +16,7 @@ import { getStrapiMedia } from '../lib/media'
 
 const AboutPage = (props) => {
 
-  console.log(props.pageData)
+
   return(
     <PageTransition>
       <Section>

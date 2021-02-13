@@ -44,7 +44,7 @@ const MobileSubMenu = (props: SubmenuProps) => {
     <Box>
       <NavLink.Mobile as="button" textAlign="start" type="button" cursor="pointer" onClick={onToggle} paddingEnd="4">
         <Box flex="1">{link.label}</Box>
-        <Box as={FaChevronDown} transform={`rotate(${isOpen ? '180deg' : '0deg'})`} />
+        <Box as={CaretDown} transform={`rotate(${isOpen ? '180deg' : '0deg'})`} />
       </NavLink.Mobile>
       <Collapse in={isOpen}>
         <Box pl="5">

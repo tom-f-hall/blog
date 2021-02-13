@@ -69,13 +69,13 @@ const ContactPage = () => {
                <Button
                  isLoading={isSubmitting}
                  loadingText="Submitting"
-                 variantColor="blue.500"
+                //  variantColor="blue.500"
                  type="submit"
                >
                  Submit
                </Button>
                <Button
-                 variantColor="teal"
+                //  variantColor="teal"
                  variant="outline"
                  onClick={resetForm}
                  isDisabled={isSubmitting}

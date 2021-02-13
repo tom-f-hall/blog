@@ -1,12 +1,12 @@
 import { Box, SimpleGrid, Heading } from '@chakra-ui/react'
 
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
-import ArticleListGrid from '../../components/articleListGrid'
-import Section from '../../components/section'
-import PageTransition from '../../components/pageTransition'
 
-import { fetchAPI } from '../../lib/api'
+import Seo from '../../../components/seo'
+import ArticleListGrid from '../../../components/articleListGrid'
+import Section from '../../../components/section'
+import PageTransition from '../../../components/pageTransition'
+
+import { fetchAPI } from '../../../lib/api'
 
 const Category = ({ category, categories}) => {
 

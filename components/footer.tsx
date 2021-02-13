@@ -23,9 +23,9 @@ const Footer = () => {
           <Link>Terms and Conditions</Link>
         </Stack>
         <ButtonGroup marginStart={{ md: 'auto' }} color="gray.600" variant="ghost">
-          <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<LinkedinLogo />} />
-          <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<GithubLogo />} />
-          <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<TwitterLogo />} />
+          <IconButton as="a" target="_blank" href="https://linkedin.com/in/thomasfhall" aria-label="LinkedIn" icon={<LinkedinLogo />} />
+          <IconButton as="a" target="_blank" href="https://github.com/tom-f-hall" aria-label="Github" icon={<GithubLogo />} />
+          <IconButton as="a" target="_blank" href="https://twitter.com/tf_hall" aria-label="Twitter" icon={<TwitterLogo />} />
         </ButtonGroup>
       </Flex>
     </Box>

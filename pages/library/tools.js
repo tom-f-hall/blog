@@ -1,5 +1,5 @@
-import PageTransition from '../components/pageTransition'
-import Section from '../components/section'
+import PageTransition from '../../components/pageTransition'
+import Section from '../../components/section'
 
 import { Heading } from '@chakra-ui/react'
 
@@ -8,7 +8,7 @@ const ToolsPage = (props) => {
     return(
         <PageTransition>
             <Section>
-                <Heading>Books</Heading>
+                <Heading>Tools</Heading>
             </Section>
         </PageTransition>
     )

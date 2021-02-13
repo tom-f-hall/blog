@@ -110,7 +110,7 @@ const Timeline = ({ events }) => {
       <>
 
         {/* <CheckboxGroup> */}
-        <HStack right={10}>
+        <HStack>
           <Menu
             closeOnSelect={false}
           >
@@ -145,8 +145,8 @@ const Timeline = ({ events }) => {
             Filter events
           </MenuButton>
           <MenuList>
-            { filterState.map( filter => (
-              <MenuItem>
+            { filterState.map( (filter, idx) => (
+              <MenuItem key={idx}>
 
                 <Checkbox
                   name={filter.name}
@@ -161,7 +161,6 @@ const Timeline = ({ events }) => {
           </MenuList>
         </Menu>
         <Button>Export to PDF <FileText /></Button>
-
       </HStack>
         <VStack>
           <>

@@ -2,17 +2,15 @@
 import { Heading, Text, VStack } from '@chakra-ui/react'
 
 
-import Section from '../components/section'
-import PageTransition from '../components/pageTransition'
-import Carousel from '../components/carousel'
-import ArticleListGrid from '../components/articleListGrid'
-import ArticleSummary from '../components/articleSummary'
-import  { InputControl } from '../components/formInputs'
-import SearchInput from '../components/searchInput'
+import Section from '../../components/section'
+import PageTransition from '../../components/pageTransition'
+import Carousel from '../../components/carousel'
+import ArticleListGrid from '../../components/articleListGrid'
+import SearchInput from '../../components/searchInput'
 
 
 
-import { fetchAPI } from '../lib/api'
+import { fetchAPI } from '../../lib/api'
 
 
 const BlogPage = (props) => {
@@ -31,9 +29,9 @@ const BlogPage = (props) => {
           <VStack>
             <Heading>Featured articles</Heading>
             <Carousel slides={props.articles} />
-            {props.categories.map(category => {
+            {props.categories.map((category, idx) => {
               return(
-                <Text>{category.name}</Text>
+                <Text key={idx}>{category.name}</Text>
               )
             })}
           </VStack>

@@ -1,5 +1,5 @@
-import PageTransition from '../components/pageTransition'
-import Section from '../components/section'
+import PageTransition from '../../components/pageTransition'
+import Section from '../../components/section'
 
 import { Heading, Text, VStack } from '@chakra-ui/react'
 

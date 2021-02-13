@@ -37,7 +37,6 @@ const Carousel = ({ slides }) => {
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect]);
 
-  console.log(slides)
 
   return (
     <>
@@ -93,7 +92,7 @@ const Carousel = ({ slides }) => {
         <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
       </Box>
       <Flex
-        listStyle='none'
+        // listStyle='none'
         justify='center'
         paddingTop='10px'
       >
