@@ -9,10 +9,9 @@ import { SubmenuItem as DesktopMenuItem } from './SubMenuItem'
 
 interface SubmenuProps {
   link: {
-    title: string
-    icon?: React.ReactElement
-    children: React.ReactNode
-    href: string
+    label: string;
+    href: string;
+    children?: undefined
   }
 }
 
