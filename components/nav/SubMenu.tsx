@@ -18,7 +18,7 @@ interface SubmenuProps {
     children: { 
       label: string; 
       href: string; 
-      icon: Element; 
+      icon: React.ReactElement; 
       description: string;
     } []; 
   }
