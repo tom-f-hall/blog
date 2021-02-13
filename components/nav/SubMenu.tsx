@@ -8,7 +8,12 @@ import { NavMenu } from './NavMenu'
 import { SubmenuItem as DesktopMenuItem } from './SubMenuItem'
 
 interface SubmenuProps {
-  link: Link
+  link: {
+    title: string
+    icon?: React.ReactElement
+    children: React.ReactNode
+    href: string
+  }
 }
 
 const DesktopSubmenu = (props: SubmenuProps) => {
