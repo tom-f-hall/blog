@@ -52,7 +52,7 @@ const Carousel = ({ slides }): JSX.Element => {
             {slides.map((slide, idx) => (
               <Box position="relative" minW="80%" pl="10px" key={idx}>
                 <Box position="relative" overflow="hidden" height="240px">
-                  <ArticleSummary article={slide} />
+                  {/* <ArticleSummary article={slide} /> */}
                   {/* <Image
                     src={getStrapiMedia(slide.image)}
                     alt="A cool cat."
