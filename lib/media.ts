@@ -1,6 +1,6 @@
 import { getStrapiURL } from './api'
 
-interface Media {
+export interface Media {
   url: string
 }
 

@@ -1,11 +1,14 @@
 import { useContext } from 'react'
 import { GlobalContext } from '../pages/_app'
-import { getStrapiMedia } from '../lib/media'
+import { getStrapiMedia, Media } from '../lib/media'
 
 type SeoData = {
   title: string
   description: string
-  image: string
+  image: {
+    url:  string
+    alternativeText: string
+  }
 }
 
 const Seo = (seo: SeoData): Record<string, unknown> => {
