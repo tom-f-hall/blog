@@ -23,7 +23,27 @@ import splitbee from '@splitbee/web'
 // GLOBALS
 // import useGlobals from '../graphql/queries/GetGlobals'
 
-export const GlobalContext = createContext({})
+type GlobalCtx = {
+  siteName: string
+  linkedin: string
+  twitter: string
+  dev: string
+  github: string
+  favicon: {
+    url: string
+    alternativeText: string
+  }
+  defaultSeo: {
+    title: string
+    description: string
+    image: {
+      url: string
+      alternativeText: string
+    }
+  }
+}
+
+export const GlobalContext = createContext<Partial<GlobalCtx>>({})
 
 const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
   // Analytics init
