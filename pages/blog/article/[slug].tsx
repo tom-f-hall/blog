@@ -65,7 +65,7 @@ const Article: NextPage = () => {
 
   if (isLoading) return <>Loading..</>
 
-  if (error) return <>{`Error: ${error.message}`}</>
+  // if (error) return <>{`Error: ${error.message}`}</>
 
   const imageUrl = getStrapiMedia(article.image)
 
