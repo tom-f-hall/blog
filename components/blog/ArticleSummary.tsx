@@ -32,7 +32,7 @@ interface ArticleSummaryProps {
   }
 }
 
-const ArticleSummary: JSX.Element = (props: ArticleSummaryProps) => {
+const ArticleSummary = (props: ArticleSummaryProps): JSX.Element => {
   const { title, href, description, media, author, category } = props
 
   // const imageUrl = getStrapiMedia(article.image)
