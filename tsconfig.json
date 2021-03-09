@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/MdxComponents.js", "components/markdown/custom.tsx", "pages/privacy.js", "next.config.js"  ],
   "exclude": [
     "node_modules"
   ]

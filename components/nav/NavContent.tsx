@@ -1,4 +1,13 @@
-import { Box, Button, Flex, FlexProps, HStack, useDisclosure, VisuallyHidden, useColorModeValue as mode } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  FlexProps,
+  HStack,
+  useDisclosure,
+  VisuallyHidden,
+  useColorModeValue as mode,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import Logo from '../logo'
 import { NavLink } from './NavLink'
@@ -7,7 +16,15 @@ import { Submenu } from './SubMenu'
 import ThemeToggle from './ThemeToggle'
 import { ToggleButton } from './ToggleButton'
 
-import { MagnifyingGlass, Code, Pencil, Wrench, Book, Browsers  } from 'phosphor-react'
+import {
+  MagnifyingGlass,
+  Code,
+  Pencil,
+  Wrench,
+  Book,
+  Browsers,
+  ChartLine,
+} from 'phosphor-react'
 
 const links = [
   {
@@ -22,23 +39,29 @@ const links = [
         label: 'Browse',
         href: '/blog',
         icon: <MagnifyingGlass />,
-        description: 'Search and browse latest and featured blog posts'
+        description: 'Search and browse latest and featured blog posts',
       },
       {
         label: 'Development',
         href: '/blog/category/dev',
         icon: <Code />,
-        description: 'Browse articles on software development'
+        description: 'Browse articles on software development',
+      },
+      {
+        label: 'Finance',
+        href: '/blog/category/finance',
+        icon: <ChartLine />,
+        description: 'Browse articles on finance topics',
       },
       {
         label: 'Random',
         href: '/blog/category/random',
         icon: <Pencil />,
-        description: 'Browse articles on random subjects'
-      }
-    ]
+        description: 'Browse articles on random subjects',
+      },
+    ],
   },
-  { 
+  {
     label: 'Kermit',
     href: '/kermit',
   },
@@ -50,41 +73,46 @@ const links = [
         label: 'Browse',
         href: '/library',
         icon: <MagnifyingGlass />,
-        description: 'Search and browse library'
+        description: 'Search and browse library',
       },
       {
         label: 'Tools',
         href: '/library/tools',
         icon: <Wrench />,
-        description: 'A compendium of computing tools'
+        description: 'A compendium of computing tools',
       },
       {
         label: 'Books',
         href: '/library/books',
         icon: <Book />,
-        description: 'My bookshelf!'
+        description: 'My bookshelf!',
       },
       {
         label: 'Links',
         href: '/library/links',
         icon: <Browsers />,
-        description: 'Links for now, links for later'
-      }
-    ]
+        description: 'Links for now, links for later',
+      },
+    ],
   },
   {
     label: 'Contact',
-    href: '/contact'
-  }
+    href: '/contact',
+  },
 ]
 
 const MobileNavContext = (props: FlexProps) => {
   const { isOpen, onToggle } = useDisclosure()
   return (
     <>
-      <Flex align="center" justify="space-between" className="nav-content__mobile" {...props}>
-        <Box as="a" rel="home" mx={[null, "auto"]}>
-          <Logo h="24px"/> {/*iconColor="blue.400"*/}
+      <Flex
+        align="center"
+        justify="space-between"
+        className="nav-content__mobile"
+        {...props}
+      >
+        <Box as="a" rel="home" mx={[null, 'auto']}>
+          <Logo h="24px" /> {/*iconColor="blue.400"*/}
         </Box>
         <Box>
           <ThemeToggle mobile={true} />
@@ -101,7 +129,7 @@ const MobileNavContext = (props: FlexProps) => {
             <NavLink.Mobile key={idx} href={link.href}>
               {link.label}
             </NavLink.Mobile>
-          ),
+          )
         )}
       </NavMenu>
     </>
@@ -110,15 +138,29 @@ const MobileNavContext = (props: FlexProps) => {
 
 const DesktopNavContent = (props: FlexProps) => {
   return (
-    <Flex className="nav-content__desktop" align="center" justify="space-between" {...props}>
+    <Flex
+      className="nav-content__desktop"
+      align="center"
+      justify="space-between"
+      {...props}
+    >
       <Box as="a" href="#" rel="home">
         <VisuallyHidden>Envelope</VisuallyHidden>
-         <Logo h="6"  /> {/* iconColor="blue.500" */}
+        <Logo h="6" /> {/* iconColor="blue.500" */}
       </Box>
-      <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
+      <HStack
+        as="ul"
+        id="nav__primary-menu"
+        aria-label="Main Menu"
+        listStyleType="none"
+      >
         {links.map((link, idx) => (
           <Box as="li" key={idx} id={`nav__menuitem-${idx}`}>
-            {link.children ? <Submenu.Desktop link={link} /> : <NavLink.Desktop href={link.href}>{link.label}</NavLink.Desktop>}
+            {link.children ? (
+              <Submenu.Desktop link={link} />
+            ) : (
+              <NavLink.Desktop href={link.href}>{link.label}</NavLink.Desktop>
+            )}
           </Box>
         ))}
       </HStack>
