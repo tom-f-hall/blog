@@ -20,12 +20,19 @@ import { PageTransition } from '../components/layout/pageTransition'
 import { Section } from '../components/layout/section'
 
 // Formik
-import { Formik } from 'formik'
+import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 
 // Seo
 import { NextSeo } from 'next-seo'
 import Seo from '../components/seo'
+
+type formData = {
+  name: string
+  email: string
+  reason: string
+  message: string
+}
 
 const validationSchema = yup.object().shape({
   name: yup.string().required('Please provide your name!'),
@@ -56,7 +63,7 @@ const ContactPage: NextPage = () => {
 
   const SEO = Seo(data.seo)
 
-  const formSubmission = useMutation((formData) =>
+  const formSubmission = useMutation((formData: formData) =>
     fetch('https://formspree.io/f/xeqpwgqq', {
       method: 'POST',
       body: JSON.stringify(formData),
@@ -125,41 +132,43 @@ const ContactPage: NextPage = () => {
                 isSubmitting,
                 resetForm,
               }) => (
-                <Box
-                  as="form"
-                  p={4}
-                  borderWidth="1px"
-                  rounded="lg"
-                  shadow="1px 1px 3px rgba(0,0,0,0.3)"
-                  onSubmit={handleSubmit}
-                  align="center"
-                >
-                  <InputControl name="name" label="Your name" />
-                  <InputControl name="email" label="Email address" />
-                  <SelectControl name="reason" label="Reason for contact">
-                    <option value={1}>Help</option>
-                    <option value={2}>Enquiry</option>
-                  </SelectControl>
-                  <TextareaControl name="message" label="Your message" />
-                  <ButtonGroup spacing={4}>
-                    <Button
-                      isLoading={isSubmitting}
-                      loadingText="Submitting"
-                      //  variantColor="blue.500"
-                      type="submit"
-                    >
-                      Submit
-                    </Button>
-                    <Button
-                      //  variantColor="teal"
-                      variant="outline"
-                      onClick={resetForm}
-                      isDisabled={isSubmitting}
-                    >
-                      Reset
-                    </Button>
-                  </ButtonGroup>
-                </Box>
+                <Form>
+                  <Box
+                    as="form"
+                    p={4}
+                    borderWidth="1px"
+                    rounded="lg"
+                    shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                    // onSubmit={handleSubmit}
+                    // align="center"
+                  >
+                    <InputControl name="name" label="Your name" />
+                    <InputControl name="email" label="Email address" />
+                    <SelectControl name="reason" label="Reason for contact">
+                      <option value={1}>Help</option>
+                      <option value={2}>Enquiry</option>
+                    </SelectControl>
+                    <TextareaControl name="message" label="Your message" />
+                    <ButtonGroup spacing={4}>
+                      <Button
+                        isLoading={isSubmitting}
+                        loadingText="Submitting"
+                        //  variantColor="blue.500"
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
+                      <Button
+                        //  variantColor="teal"
+                        variant="outline"
+                        // onClick={resetForm}
+                        isDisabled={isSubmitting}
+                      >
+                        Reset
+                      </Button>
+                    </ButtonGroup>
+                  </Box>
+                </Form>
               )}
             </Formik>
           </Box>
