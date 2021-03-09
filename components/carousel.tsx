@@ -135,14 +135,15 @@ const ButtonBase = {
   padding: 0,
 }
 
+// style={ButtonBase}
 const PrevButton = ({ enabled, onClick }) => (
-  <Button onClick={onClick} style={ButtonBase} disabled={!enabled} left="27px">
+  <Button onClick={onClick} disabled={!enabled} left="27px">
     <CaretLeft />
   </Button>
 )
-
+// style={ButtonBase}
 const NextButton = ({ enabled, onClick }) => (
-  <Button onClick={onClick} style={ButtonBase} disabled={!enabled} right="27px">
+  <Button onClick={onClick} disabled={!enabled} right="27px">
     <CaretRight />
   </Button>
 )
