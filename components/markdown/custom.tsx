@@ -1,12 +1,12 @@
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer, { defaults } from 'chakra-ui-markdown-renderer'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import { useColorModeValue as mode, Box } from '@chakra-ui/react'
 import vsDark from 'prism-react-renderer/themes/vsDark'
 import github from 'prism-react-renderer/themes/github'
 
 interface CodeProps {
-  language: string
+  language: Language
   value: string
 }
 
