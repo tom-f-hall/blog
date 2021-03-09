@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
-import PageTransition from '../../components/layout/pageTransition'
-import Section from '../../components/layout/section'
+import { PageTransition } from '../../components/layout/pageTransition'
+import { Section } from '../../components/layout/section'
 
 import { Heading } from '@chakra-ui/react'
 
