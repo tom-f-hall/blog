@@ -1,14 +1,22 @@
 import { gql } from 'graphql-request'
-import graphQLClient from '../../lib/graphqlClient'
+import graphQLClient from '../lib/graphqlClient'
 
 export const GetPrivacyPage = async (): Promise<any> => {
   const query = gql`
     {
       privacyPage {
+        core {
+          heading
+        }
         content
         seo {
-          metaTitle
-          metaDescription
+          title
+          description       
+          image {
+            url
+            alternativeText
+          }
+          
         }
       }
     }

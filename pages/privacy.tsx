@@ -5,12 +5,13 @@ import { NextPage, GetStaticProps } from 'next'
 // REACT-QUERY
 import { QueryClient, useQuery } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
-import { GetPrivacyPage } from '../graphql/queries/GetPrivacyPage'
+import { GetPrivacyPage } from '../data/GetPrivacyPage'
 
 // CUSTOM
-import PageTransition from '../components/layout/pageTransition'
-import Section from '../components/layout/section'
+import { PageTransition } from '../components/layout/pageTransition'
+import { Section } from '../components/layout/section'
 import Markdown from '../components/markdown/custom'
+import Seo from '../components/seo'
 
 // SEO
 import { NextSeo } from 'next-seo'
@@ -52,11 +53,7 @@ const PrivacyPage: NextPage = () => {
 
   console.log(status)
 
-  const SEO = {
-    title: data.seo.metaTitle,
-    description: data.seo.metaDescription,
-    // image: getStrapiMedia( data.seo.shareImage )
-  }
+  const SEO = Seo(data.seo)
 
   return (
     <>
