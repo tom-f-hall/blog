@@ -5,7 +5,7 @@ import ArticleSummary from './ArticleSummary'
 
 import { getStrapiMedia } from '../../lib/media'
 
-const ArticleListGrid: JSX.Element = ({ articles }) => {
+const ArticleListGrid = ({ articles }): JSX.Element => {
   const [isList, setIsList] = useState(false)
 
   return (
