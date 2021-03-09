@@ -49,7 +49,7 @@ const PrivacyPage: NextPage = () => {
 
   if (isLoading) return <>Loading...</>
 
-  if (error) return <>{`Error: ${error.message}`}</>
+  // if (error) return <>{`Error: ${error.message}`}</>
 
   console.log(status)
 

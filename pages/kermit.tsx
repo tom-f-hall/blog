@@ -74,7 +74,7 @@ const KermitPage = (): JSX.Element => {
       <Feedback title="Loading..." message="hey" icon={<Spinner />} color="" />
     )
 
-  if (pageError) return <>`An error has occured: ${pageError.message}`</>
+  // if (pageError) return <>`An error has occured: ${pageError.message}`</>
 
   const profilePhoto = getStrapiMedia(pageData.profilePhoto)
 

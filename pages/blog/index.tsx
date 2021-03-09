@@ -56,7 +56,7 @@ const BlogPage: NextPage = () => {
   } = useQuery('articles', GetArticles)
 
   if (pageIsLoading) return <>Page loading...</>
-  if (pageError) return <>`Error: ${pageError.message}`</>
+  // if (pageError) return <>`Error: ${pageError.message}`</>
 
   const SEO = Seo(page.seo)
 

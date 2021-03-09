@@ -36,7 +36,7 @@ const HomePage: NextPage = () => {
 
   if (pageIsLoading) return <>Loading...</>
 
-  if (pageError) return <>{`Error: ${pageError.message}`}</>
+  // if (pageError) return <>{`Error: ${pageError.message}`}</>
 
   const { heading, intro, image } = pageData.core
 

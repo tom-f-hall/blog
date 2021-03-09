@@ -38,7 +38,7 @@ const AboutPage: NextPage = () => {
 
   if (isLoading) return <>'Loading..'</>
 
-  if (error) return <>'An error has occured: ' + {error.message}</>
+  // if (error) return <>'An error has occured: ' + {error.message}</>
 
   const SEO = Seo(data.seo)
 
