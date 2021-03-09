@@ -13,6 +13,7 @@ export interface PostProps {
   location: string
   postImage: string
   postContent: string
+  key: string
 }
 
 export const Post = (props: PostProps): JSX.Element => {
