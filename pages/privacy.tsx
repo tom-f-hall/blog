@@ -49,9 +49,7 @@ const PrivacyPage: NextPage = () => {
 
   if (isLoading) return <>Loading...</>
 
-  // if (error) return <>{`Error: ${error.message}`}</>
-
-  console.log(status)
+  if (error) return <>Error</>
 
   const SEO = Seo(data.seo)
 

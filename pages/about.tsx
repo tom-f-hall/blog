@@ -24,7 +24,7 @@ import Seo from '../components/seo'
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery('about-page', GetAboutPage)
+  await queryClient.prefetchQuery('about-page', () => GetAboutPage)
 
   return {
     props: {
@@ -39,8 +39,9 @@ const AboutPage: NextPage = () => {
   if (isLoading) return <>'Loading..'</>
 
   // if (error) return <>'An error has occured: ' + {error.message}</>
-
-  const SEO = Seo(data.seo)
+  console.log(data)
+  const { seo } = data
+  const SEO = Seo(seo)
 
   const { heading, intro, image } = data.core
 

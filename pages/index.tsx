@@ -42,8 +42,6 @@ const HomePage: NextPage = () => {
 
   const { display, route } = pageData.callToAction
 
-  const { heroTitle, heroSubtitle, heroImage, blogCtaText, seo } = pageData
-
   const SEO = Seo(pageData.seo)
 
   return (
