@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { GetStaticProps } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 
 // import NextImage from '../components/image'
 
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const KermitPage = (): JSX.Element => {
+const KermitPage: NextPage = () => {
   const [cursor, setCursor] = useState(0)
   const {
     isLoading: pageIsLoading,
