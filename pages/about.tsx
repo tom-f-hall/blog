@@ -24,7 +24,7 @@ import Seo from '../components/seo'
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery('about-page', () => GetAboutPage())
+  await queryClient.prefetchQuery('about-page', GetAboutPage)
 
   return {
     props: {
