@@ -84,7 +84,7 @@ const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
             }}
             twitter={{
               handle: '@tf_hall',
-              site: '@site',
+              site: '@appsolutely',
               cardType: 'summary_large_image',
             }}
             {...SEO}
